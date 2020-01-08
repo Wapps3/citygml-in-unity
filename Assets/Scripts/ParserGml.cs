@@ -20,6 +20,7 @@ public class ParserGml
             }
         }
 
+        Debug.Log(res.Length);
         return res;
     }
 

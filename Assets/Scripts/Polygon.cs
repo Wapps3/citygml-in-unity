@@ -15,11 +15,68 @@ public class Polygon
 
     public void Draw()
     {
-        foreach(Vector3 point in listPoints)
+        GameObject face = new GameObject();
+
+        Mesh msh = new Mesh();
+
+        Vector3[] vertices = new Vector3[listPoints.Count];
+        for (int i = 0; i < listPoints.Count; i++)
+            vertices[i] = listPoints[i];
+
+        int[] triangles = new int[ (int)Mathf.Ceil(listPoints.Count / 2) * 3 *2];
+
+        int lastIndex = 0;
+        for(int i = 0; i < listPoints.Count-1; i = i +2)
         {
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.transform.position = point;
-            cube.transform.localScale = cube.transform.localScale / 100;
+            if( i == listPoints.Count - 1)
+            {
+                triangles[lastIndex] = i;
+                lastIndex++;
+                triangles[lastIndex]  = 0;
+                lastIndex++;
+                triangles[lastIndex] = 1;
+                lastIndex++;
+            }
+            else if( i == listPoints.Count -2)
+            {
+                triangles[lastIndex] = i;
+                lastIndex++;
+                triangles[lastIndex] = i+1;
+                lastIndex++;
+                triangles[lastIndex] = 0;
+                lastIndex++;
+            }
+            else
+            {
+                triangles[lastIndex] = i;
+                lastIndex++;
+                triangles[lastIndex] = i + 1;
+                lastIndex++;
+                triangles[lastIndex] = i + 2;
+                lastIndex++;
+
+                triangles[lastIndex] = i;
+                lastIndex++;
+                triangles[lastIndex] = i + 2;
+                lastIndex++;
+                triangles[lastIndex] = i + 1;
+                lastIndex++;
+            }
         }
+
+
+        for (int i = 0; i < triangles.Length; i++)
+            Debug.Log("yoyo" + triangles[i]);
+
+        for (int i = 0; i < vertices.Length; i++)
+            Debug.Log("yoyo" + vertices[i]);
+
+        msh.vertices = vertices;
+        msh.triangles = triangles;
+
+        MeshFilter mshFilter = face.AddComponent<MeshFilter>();
+        face.AddComponent<MeshRenderer>().material.color = Color.white ;
+      
+        mshFilter.mesh = msh;
     }
 }
