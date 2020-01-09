@@ -65,11 +65,6 @@ public class Polygon
         }
 
 
-        for (int i = 0; i < triangles.Length; i++)
-            Debug.Log("yoyo" + triangles[i]);
-
-        for (int i = 0; i < vertices.Length; i++)
-            Debug.Log("yoyo" + vertices[i]);
 
         msh.vertices = vertices;
         msh.triangles = triangles;

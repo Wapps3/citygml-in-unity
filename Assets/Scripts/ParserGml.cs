@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ParserGml
 {
@@ -20,7 +21,6 @@ public class ParserGml
             }
         }
 
-        Debug.Log(res.Length);
         return res;
     }
 
@@ -32,8 +32,13 @@ public class ParserGml
 
         Building buildingtmp = new Building();
 
+        // string[] sublines = new string[1000000];
+        // Array.Copy(lines, 0, sublines, 0, 1000000);
+
+
         foreach (string l in lines )
-        {
+        // foreach (string l in sublines)
+            {
 
             if (l.Contains("</bldg:Building>") )
             {
