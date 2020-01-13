@@ -1,5 +1,6 @@
 # citygml-in-unity
 
+
 A program to load `.gml` file and displays the meshes in Unity. 
 
 
@@ -17,11 +18,13 @@ The city of Bron (69500) :
 
 Resources for `.gml` files : https://data.beta.grandlyon.com/jeux-de-donnees/maquette-3d-texturee-commune-bron-metropole-lyon/ressources
 
-## 1. How to use
+##  How to use
 
 - Create an empty GameObject in the Scene and attach the script `Load.cs`. 
 - Fill the parameter `filename` with the name your `.glm` file. Your files must be in the directory `Assets/Citygml/`. 
 
-## 2.
+## GML Format
 
-## 3.
+The Geography Markup Language (GML) is the XML grammar defined by the Open Geospatial Consortium (OGC) to express geographical features. GML serves as a modeling language for geographic systems as well as an open interchange format for geographic transactions on the Internet. Key to GML's utility is its ability to integrate all forms of geographic information, including not only conventional "vector" or discrete objects, but coverages (see also GMLJP2) and sensor data. 
+
+## 
