@@ -49,19 +49,24 @@ public class Polygon
             }
             else
             {
-                triangles[lastIndex] = i;
-                lastIndex++;
-                triangles[lastIndex] = i + 1;
-                lastIndex++;
-                triangles[lastIndex] = i + 2;
-                lastIndex++;
-
-                triangles[lastIndex] = i;
-                lastIndex++;
-                triangles[lastIndex] = i + 2;
-                lastIndex++;
-                triangles[lastIndex] = i + 1;
-                lastIndex++;
+                /*if ( i > listPoints.Count/2)
+                {*/
+                    triangles[lastIndex] = i;
+                    lastIndex++;
+                    triangles[lastIndex] = i + 1;
+                    lastIndex++;
+                    triangles[lastIndex] = i + 2;
+                    lastIndex++;
+                /*}
+                else
+                {*/
+                    triangles[lastIndex] = i;
+                    lastIndex++;
+                    triangles[lastIndex] = i + 2;
+                    lastIndex++;
+                    triangles[lastIndex] = i + 1;
+                    lastIndex++;
+                /*}*/
             }
         }
 
@@ -72,7 +77,9 @@ public class Polygon
 
         MeshFilter mshFilter = face.AddComponent<MeshFilter>();
         face.AddComponent<MeshRenderer>().material.color = Color.white;
-      
+
+        msh.Optimize();
         mshFilter.mesh = msh;
+        mshFilter.mesh.Optimize();
     }
 }
