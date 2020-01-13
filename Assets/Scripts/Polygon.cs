@@ -23,6 +23,7 @@ public class Polygon
         for (int i = 0; i < listPoints.Count; i++)
             vertices[i] = listPoints[i];
 
+
         int[] triangles = new int[ (int)Mathf.Ceil(listPoints.Count / 2) * 3 *2];
 
         int lastIndex = 0;
@@ -70,7 +71,7 @@ public class Polygon
         msh.triangles = triangles;
 
         MeshFilter mshFilter = face.AddComponent<MeshFilter>();
-        face.AddComponent<MeshRenderer>().material.color = Color.white ;
+        face.AddComponent<MeshRenderer>().material.color = Color.white;
       
         mshFilter.mesh = msh;
     }
