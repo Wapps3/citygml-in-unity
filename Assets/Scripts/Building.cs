@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Building
 {
-    private List<Polygon> listPolys = new List<Polygon>();
-   
+    private List<Polygon> listPolys = new List<Polygon>();   
 
     public void AddPoly(float[] listFloat)
     {
@@ -16,7 +15,6 @@ public class Building
             {
                 tmp.Add(new Vector3(listFloat[i], listFloat[i + 2], listFloat[i+1])/100 );
             }
-
             listPolys.Add(new Polygon(tmp));
         }
     }

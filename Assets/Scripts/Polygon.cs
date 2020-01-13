@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Polygon 
-{
-    
-
+{  
     List<Vector3> listPoints;
 
     public Polygon(List<Vector3> listPoints)
@@ -16,7 +14,6 @@ public class Polygon
     public void Draw()
     {
         GameObject face = new GameObject();
-
         Mesh msh = new Mesh();
 
         Vector3[] vertices = new Vector3[listPoints.Count];
@@ -49,36 +46,29 @@ public class Polygon
             }
             else
             {
-                /*if ( i > listPoints.Count/2)
-                {*/
-                    triangles[lastIndex] = i;
-                    lastIndex++;
-                    triangles[lastIndex] = i + 1;
-                    lastIndex++;
-                    triangles[lastIndex] = i + 2;
-                    lastIndex++;
-                /*}
-                else
-                {*/
-                    triangles[lastIndex] = i;
-                    lastIndex++;
-                    triangles[lastIndex] = i + 2;
-                    lastIndex++;
-                    triangles[lastIndex] = i + 1;
-                    lastIndex++;
-                /*}*/
+                // Draws each triangle clockwise and anticlockwise
+                triangles[lastIndex] = i;
+                lastIndex++;
+                triangles[lastIndex] = i + 1;
+                lastIndex++;
+                triangles[lastIndex] = i + 2;
+                lastIndex++;
+
+                triangles[lastIndex] = i;
+                lastIndex++;
+                triangles[lastIndex] = i + 2;
+                lastIndex++;
+                triangles[lastIndex] = i + 1;
+                lastIndex++;
+
             }
         }
-
-
 
         msh.vertices = vertices;
         msh.triangles = triangles;
 
         MeshFilter mshFilter = face.AddComponent<MeshFilter>();
         face.AddComponent<MeshRenderer>().material.color = Color.white;
-
-        msh.Optimize();
         mshFilter.mesh = msh;
         mshFilter.mesh.Optimize();
     }

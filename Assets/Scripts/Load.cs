@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class Load : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public string filename;
+
     void Start()
     {
-        //List<Building> city = ParserGml.LoadGml(@"Assets/Citygml/test1.gml") ;
-        //List<Building> city = ParserGml.LoadGml(@"Assets/Citygml/campus.gml") ;
-        List<Building> city = ParserGml.LoadGml(@"Assets/Citygml/BRON_BATI_2009Half.gml");
-
-        foreach (Building b in city)
+        try
         {
-            b.Draw();
+            List<Building> city = ParserGml.LoadGml(@"Assets/Citygml/" + filename);
+            foreach (Building b in city)
+            {
+                b.Draw();
+            }
         }
-
-
-        
+        catch
+        {
+            Debug.Log(" File " + filename + " does not exist");
+        }             
     }
-
-   
-   
- 
 }
