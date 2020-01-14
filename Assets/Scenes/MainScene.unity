@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8bf0df402e9534ea10c13a12590620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: BRON_BATI_2009_partiel.gml
+  filename: campus.gml
 --- !u!4 &1638463872
 Transform:
   m_ObjectHideFlags: 0
