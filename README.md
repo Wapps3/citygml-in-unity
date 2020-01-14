@@ -1,4 +1,4 @@
-# citygml-in-unity
+# CytiGML Parser in Unity
 
 
 A program to load `.gml` file and displays the meshes in Unity. 
